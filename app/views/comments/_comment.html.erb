@@ -1,0 +1,7 @@
+
+<tr id="comment">
+  <td><%= comment.body %></td>
+  <td><%= comment.user_id %> </td>
+  <td><%= link_to "Edit" , edit_micropost_comment_path(comment.micropost, comment) %> </td>
+  <td> <%= link_to "Delete" , micropost_comment_path(comment.micropost, comment), method: :delete, data: {confirm: "Are you sure ?"}, :remote => true, :class => 'delete_comment'  %> </td>
+</tr>
