@@ -1,5 +1,7 @@
 class Micropost < ApplicationRecord
-  # belongs_to :user
+  validates :content, presence: true
+  validates :image, presence: true
+  belongs_to :user
   has_many :comments
   mount_uploader :image, ImageUploader
   include PgSearch

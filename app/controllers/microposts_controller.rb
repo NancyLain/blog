@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
 
   # GET /microposts
@@ -26,7 +27,7 @@ class MicropostsController < ApplicationController
   # POST /microposts
   # POST /microposts.json
   def create
-    @micropost = Micropost.new(micropost_params)
+    @micropost = current_user.microposts.new(micropost_params)
 
     respond_to do |format|
       if @micropost.save
