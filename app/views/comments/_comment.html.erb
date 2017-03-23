@@ -1,14 +1,13 @@
 
  <% if user_signed_in? %>
-   <% if comment.user_id = current_user.id %>
-         <tr id="comment">
+            <tr id="comment">
            <td><%= comment.body %></td>
-           <td><%= comment.user_id %> </td>
+           <td><%= comment.user.login %> </td>
+
            <td><%= link_to "Edit" , edit_micropost_comment_path(comment.micropost, comment) %> </td>
            <td> <%= link_to "Delete" , micropost_comment_path(comment.micropost, comment), method: :delete, data: {confirm: "Are you sure ?"}, :remote => true, :class => 'delete_comment'  %> </td>
          </tr>
-     <% end %>
- <% end %>
+   <% end %>
 
 
 
