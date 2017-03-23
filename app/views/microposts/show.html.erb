@@ -7,7 +7,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @micropost.user_id %>
+  <%= @micropost.user.login %>
  </p>
 
 <p>
@@ -30,11 +30,6 @@
       <%= f.label :body %>
       <%= f.text_area :body, id:'name_field'  %>
     </div>
-
-    <!--<div class="field">-->
-    <!--<%= f.label :user_id %>-->
-    <!--<%= f.number_field :user_id %>-->
-    <!--</div>-->
 
     <div class="field">
       <%= image_tag @micropost.image.url(:thumb), class: 'img-show' if @micropost.image? %>
