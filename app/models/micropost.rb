@@ -6,5 +6,6 @@ class Micropost < ApplicationRecord
   mount_uploader :image, ImageUploader
   include PgSearch
   pg_search_scope :search_everywhere, against: [:content]
+  resourcify
 
 end
