@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :find_micropost
   before_action :find_comment, only: [:edit, :update, :destroy]
+  skip_authorize_resource :only => :current_user
 
 
    def index

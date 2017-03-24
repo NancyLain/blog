@@ -2,6 +2,7 @@ class MicropostsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+  skip_authorize_resource :only => :current_user
 
   # GET /microposts
   # GET /microposts.json

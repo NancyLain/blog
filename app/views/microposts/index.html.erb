@@ -19,10 +19,10 @@
         <td> <%= micropost.user.login %></td>
         <td> <%= image_tag micropost.image.url(:thumb, class: "img-thumbnail")%></td>
         <td><%= link_to 'Show', micropost %></td>
-        <% if micropost.user_id == current_user.id %>
-         <td><%= link_to 'Edit', edit_micropost_path(micropost) %></td>
+        <% if can? :update, micropost %>
+            <td><%= link_to 'Edit', edit_micropost_path(micropost) %></td>
         <% end %>
-        <% if can? :edit, Micropost %>
+        <% if can? :destroy, micropost %>
          <td><%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
          <% end %>
       </tr>
